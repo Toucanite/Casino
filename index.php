@@ -5,11 +5,66 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link href="style.css" rel="stylesheet" type="text/css" />
     </head>
-    <body>        
-        <div>                   					                  
-			<?php										
-				// INSERER LE CODE PHP ICI
-			?>						                                    
+    <body>
+        <div>
+			<?php
+      $DEFAULT_MONEY = 10000;
+      $NOMBRE_IMAGES = 3;
+      $COUT_PAR_TOUR = 1000;
+      $PRICES = array(0, 15000, 25000, 250000, 500000, 1000000);
+      $nbrTireAuSort = array();
+
+
+      if (isset($_GET['money'])) {
+        $money = $_GET['money'];
+        $nbrPrecedent = 0;
+        $recompense;
+        for ($i=0; $i < $NOMBRE_IMAGES; $i++) {
+          $nbrTireAuSort[$i] = rand(0, 5);
+          echo '<img src="Image' . $nbrTireAuSort[$i] . '.jpg" alt="' . $nbrTireAuSort[$i] . '">';
+        }
+        foreach ($nbrTireAuSort as $key => $value) {
+          if ($key != 0) {
+            if ($nbrPrecedent != $value) {
+              break;
+            }
+            if ($key = $nbrTireAuSort[(count($nbrTireAuSort) - 1)]) {
+              $recompense = $value;
+            }
+          }
+          $nbrPrecedent = $value;
+        }
+        if (is_null($recompense)) {
+          $money += 0;
+        }
+        elseif ($recompense == 0) {
+          $money = 0;
+          echo '<h1>Pas de chance! Vous avez tout perdu...</h1>';
+        }
+        else {
+          $money += $PRICES[$recompense];
+          echo '<h1>Félicitations! Vous avez gagné ' . $PRICES[$recompense] . ' $</h1>';
+        }
+
+        if ($money >= $COUT_PAR_TOUR) {
+          echo '<p>Vous avez ' . $money . ' $</p>';
+          echo '<a href="index.php?money=' . $money . '">Cliquez ici pour jouer ' . $COUT_PAR_TOUR . ' $</a>';
+        }
+        else {
+          echo 'Vous n\'avez plus assez de crédits pour jouer';
+        }
+
+
+      }
+      else {
+        echo '<h1>Bienvenue au Casino!</h1>';
+        echo '<img src="banner.jpg" alt="Casino">';
+        echo '<p>Vous avez ' . $DEFAULT_MONEY . ' $</p>';
+        echo '<a href="index.php?money=' . $DEFAULT_MONEY . '">Cliquez ici pour jouer ' . $COUT_PAR_TOUR . ' $</a>';
+      }
+
+			?>
+        <a href="index.php">Retour</a>
         </div>
     </body>
 </html>
