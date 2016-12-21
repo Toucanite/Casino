@@ -48,7 +48,7 @@
 
         if ($money >= $COUT_PAR_TOUR) {
           echo '<p>Vous avez ' . $money . ' $</p>';
-          echo '<a href="index.php?money=' . $money . '">Cliquez ici pour jouer ' . $COUT_PAR_TOUR . ' $</a>';
+          echo '<a href="index.php?money=' . ($money - $COUT_PAR_TOUR) . '">Cliquez ici pour jouer ' . $COUT_PAR_TOUR . ' $</a>';
         }
         else {
           echo 'Vous n\'avez plus assez de crédits pour jouer';
