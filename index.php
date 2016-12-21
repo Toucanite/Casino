@@ -18,7 +18,7 @@
       if (isset($_GET['money'])) {
         $money = $_GET['money'];
         $nbrPrecedent = 0;
-        $recompense;
+        $recompense = NULL;
         for ($i=0; $i < $NOMBRE_IMAGES; $i++) {
           $nbrTireAuSort[$i] = rand(0, 5);
           echo '<img src="Image' . $nbrTireAuSort[$i] . '.jpg" alt="' . $nbrTireAuSort[$i] . '">';
@@ -34,7 +34,7 @@
           }
           $nbrPrecedent = $value;
         }
-        if (is_null($recompense)) {
+        if ($recompense === NULL) {
           $money += 0;
         }
         elseif ($recompense == 0) {
@@ -64,6 +64,7 @@
       }
 
 			?>
+        <br>
         <a href="index.php">Retour</a>
         </div>
     </body>
