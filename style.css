@@ -1,0 +1,35 @@
+body {
+	padding-top: 20px;
+    width: 500px;
+    margin: auto;
+	font-family: Calibri, Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	background-color: FireBrick;	
+}
+
+div {
+	text-align: center;
+}
+
+a, img {
+	text-decoration: none;
+	border-style: none;
+	border: 0px;
+	padding: 0px;
+	margin: 0px;
+	color: yellow;
+}
+
+img {
+	border: 2px solid black;
+}
+
+p{
+	text-align: center;
+	padding: 0px;
+	margin: -5px; /* COMPATIBILITE MOZILLA FIREFOX */
+}
+
+h1{
+	text-align: center;
+}
