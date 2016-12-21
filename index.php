@@ -28,7 +28,7 @@
             if ($nbrPrecedent != $value) {
               break;
             }
-            if ($key = $nbrTireAuSort[(count($nbrTireAuSort) - 1)]) {
+            if ($key == (count($nbrTireAuSort) - 1)) {
               $recompense = $value;
             }
           }
@@ -39,28 +39,28 @@
         }
         elseif ($recompense == 0) {
           $money = 0;
-          echo '<h1>Pas de chance! Vous avez tout perdu...</h1>';
+          echo '<h1>Pas de chance! Vous avez tout perdu...</h1><br>';
         }
         else {
           $money += $PRICES[$recompense];
-          echo '<h1>Félicitations! Vous avez gagné ' . $PRICES[$recompense] . ' $</h1>';
+          echo '<h1>Félicitations! Vous avez gagné ' . $PRICES[$recompense] . ' $</h1><br>';
         }
 
         if ($money >= $COUT_PAR_TOUR) {
-          echo '<p>Vous avez ' . $money . ' $</p>';
-          echo '<a href="index.php?money=' . ($money - $COUT_PAR_TOUR) . '">Cliquez ici pour jouer ' . $COUT_PAR_TOUR . ' $</a>';
+          echo '<p>Vous avez ' . $money . ' $</p><br>';
+          echo '<a href="index.php?money=' . ($money - $COUT_PAR_TOUR) . '">Cliquez ici pour jouer ' . $COUT_PAR_TOUR . ' $</a><br>';
         }
         else {
-          echo 'Vous n\'avez plus assez de crédits pour jouer';
+          echo '<br><p>Vous n\'avez plus assez de crédits pour jouer</p><br>';
         }
 
 
       }
       else {
-        echo '<h1>Bienvenue au Casino!</h1>';
-        echo '<img src="banner.jpg" alt="Casino">';
-        echo '<p>Vous avez ' . $DEFAULT_MONEY . ' $</p>';
-        echo '<a href="index.php?money=' . $DEFAULT_MONEY . '">Cliquez ici pour jouer ' . $COUT_PAR_TOUR . ' $</a>';
+        echo '<h1>Bienvenue au Casino!</h1><br>';
+        echo '<img src="banner.jpg" alt="Casino"><br>';
+        echo '<p>Vous avez ' . $DEFAULT_MONEY . ' $</p><br>';
+        echo '<a href="index.php?money=' . $DEFAULT_MONEY . '">Cliquez ici pour jouer ' . $COUT_PAR_TOUR . ' $</a><br>';
       }
 
 			?>
